@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/COMP2139_ICE2.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-
+QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==
+" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 <header>
@@ -21,10 +24,10 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"> <i class="fa fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About"> <i class="fa-regular fa-address-card"></i> About</a>
                     </li>
                 </ul>
             </div>
@@ -39,7 +42,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2026 - COMP2139_ICE2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2026 - COMP2139_ICE2 - <a asp-area="" asp-controller="Home" asp-action="About">Krish Bhatia</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

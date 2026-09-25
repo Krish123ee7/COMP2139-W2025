@@ -7,4 +7,12 @@
         <RootNamespace>COMP2139_ICE2</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Home1\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
