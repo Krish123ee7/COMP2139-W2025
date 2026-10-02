@@ -1,0 +1,62 @@
+﻿@* Specifies that this view expects a Project object. *@
+@model Project
+
+@{
+    // Sets the page title displayed in the browser.
+    ViewData["Title"] = "Project Details";
+}
+
+<h2>Project Details</h2>
+
+<div class="card">
+
+    <div class="card-body">
+
+        <!-- Displays the project name as the card title -->
+        <h3 class="card-title">@Model.Name</h3>
+
+        <!-- Displays the project description -->
+        <p class="card-text">@Model.Description</p>
+
+        <!--
+        Displays project information using a definition list.
+
+        <dl> = Definition List
+        <dt> = Definition Term (label)
+        <dd> = Definition Description (value)
+        -->
+        <dl class="row">
+
+            <!-- Displays the Project ID -->
+            <dt class="col-sm-3">Project ID</dt>
+            <dd class="col-sm-9">@Model.ProjectId</dd>
+
+            <!--
+            Additional project properties can be displayed here.
+
+            Example:
+
+            <dt class="col-sm-3">Start Date</dt>
+            <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
+            -->
+
+        </dl>
+
+        <!--
+        Edit button.
+        The asp-route-id tag helper passes the current
+        ProjectId to the Edit action.
+        -->
+        <a asp-action="Edit"
+           asp-route-id="@Model.ProjectId"
+           class="btn btn-primary">
+            Edit
+        </a>
+
+        <!-- Returns the user to the project list -->
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+</div>

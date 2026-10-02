@@ -1,0 +1,66 @@
+﻿@* Specifies that this view expects a Project object. *@
+@model Project
+
+@{
+    // Sets the page title displayed in the browser.
+    ViewData["Title"] = "Create Project";
+}
+
+<h2>Create Project</h2>
+
+<!--
+This form sends the user's input to the Create action
+in the current controller using the HTTP POST method.
+-->
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+
+        <!-- Label for the project name -->
+        <label asp-for="Name" class="control-label"></label>
+
+        <!-- Text box for entering the project name -->
+        <input asp-for="Name" class="form-control" />
+
+        <!-- Displays validation errors for the Name field -->
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-group">
+
+        <!-- Label for the project description -->
+        <label asp-for="Description" class="control-label"></label>
+
+        <!-- Multi-line text area for entering the project description -->
+        <textarea asp-for="Description" class="form-control"></textarea>
+
+        <!-- Displays validation errors for the Description field -->
+        <span asp-validation-for="Description" class="text-danger"></span>
+
+    </div>
+
+    <!-- Additional input fields can be added here if needed. -->
+
+    <div class="form-group">
+
+        <!-- Submit button -->
+        <input type="submit"
+               value="Create"
+               class="btn btn-primary" />
+
+    </div>
+
+</form>
+
+<!--
+These scripts enable client-side validation based on
+the model's data annotation attributes, such as
+[Required], [StringLength], and [Range].
+-->
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

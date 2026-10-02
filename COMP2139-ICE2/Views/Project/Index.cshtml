@@ -1,0 +1,65 @@
+﻿@* Specifies that this view expects a list of Project objects. *@
+@model List<Project>
+
+@{
+    // Sets the page title displayed in the browser.
+    ViewData["Title"] = "Projects";
+}
+
+<h2>Projects</h2>
+
+@*
+    Checks whether the model contains any projects.
+
+    If one or more projects exist, they are displayed
+    in a table. Otherwise, a message is shown indicating
+    that no projects are available.
+*@
+@if (Model.Any())
+{
+    <table class="table">
+
+        <thead>
+        <tr>
+
+            <!-- Table column headings -->
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+
+            <!-- Additional project properties can be added here -->
+        </tr>
+        </thead>
+
+        <tbody>
+        <!--
+        Iterates through each Project object
+        in the model and displays its data.
+        -->
+        @foreach (var project in Model)
+        {
+            <tr>
+
+                <!-- Displays the project ID -->
+                <td>@project.ProjectId</td>
+
+                <!-- Displays the project name -->
+                <td>@project.Name</td>
+
+                <!-- Displays the project description -->
+                <td>@project.Description</td>
+
+                <!-- Additional project properties can be displayed here -->
+
+            </tr>
+        }
+
+        </tbody>
+
+    </table>
+}
+else
+{
+    <!-- Displayed when no projects exist in the model -->
+    <p>No projects available.</p>
+}
