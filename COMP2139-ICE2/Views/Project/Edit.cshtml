@@ -1,0 +1,42 @@
+﻿@model Project
+
+@{ 
+    ViewBag.Title = "Edit Project"; 
+    Layout = "_Layout"; 
+} 
+
+<h2>@ViewBag.Title</h2> 
+
+<form asp-action="Edit" method="post"> 
+    <!-- Hidden field to ensure the ProjectId is included in the form submission, linking the data to the correct record in the database. --> 
+    @Html.HiddenFor(model => model.ProjectId) 
+     
+    <div class="form-group"> 
+        <label asp-for="Name" class="control-label"></label> 
+        <input asp-for="Name" class="form-control" /> 
+        <span asp-validation-for="Name" class="text-danger"></span> 
+    </div> 
+
+    <div class="form-group"> 
+        <label asp-for="Description" class="control-label"></label> 
+        <textarea asp-for="Description" class="form-control"></textarea> 
+        <span asp-validation-for="Description" class="text-danger"></span> 
+    </div> 
+
+    <!-- Include additional fields as necessary --> 
+
+    <div class="form-group mt-3"> 
+        <input type="submit" value="Save" class="btn btn-primary" /> 
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a> 
+    </div>     
+</form> 
+
+@section Scripts { 
+    @{ 
+        // The following line renders a partial view called "_ValidationScriptsPartial". 
+        // This partial view typically includes client-side validation scripts for forms. 
+        // It ensures that the JavaScript necessary for handling validation attributes  
+        // (like [Required]) in the model is loaded on the page. 
+        await Html.RenderPartialAsync("_ValidationScriptsPartial"); 
+    } 
+}

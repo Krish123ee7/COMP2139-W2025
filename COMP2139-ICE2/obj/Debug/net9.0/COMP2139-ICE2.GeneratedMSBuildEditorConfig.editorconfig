@@ -40,8 +40,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/krish/OneDrive/Desktop/college/2026fall/comp2139/COMP2139-ICE2/COMP2139-ICE2/Views/Project/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/krish/OneDrive/Desktop/college/2026fall/comp2139/COMP2139-ICE2/COMP2139-ICE2/Views/Project/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/krish/OneDrive/Desktop/college/2026fall/comp2139/COMP2139-ICE2/COMP2139-ICE2/Views/Project/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/krish/OneDrive/Desktop/college/2026fall/comp2139/COMP2139-ICE2/COMP2139-ICE2/Views/Project/Index.cshtml]

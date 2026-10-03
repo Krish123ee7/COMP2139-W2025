@@ -48,7 +48,12 @@
 
                 <!-- Displays the project description -->
                 <td>@project.Description</td>
-
+                <td>
+                    <!-- Details -->    
+                    <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a> 
+                    <!-- Delete --> 
+                    <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a> 
+                </td> 
                 <!-- Additional project properties can be displayed here -->
 
             </tr>
@@ -63,3 +68,4 @@ else
     <!-- Displayed when no projects exist in the model -->
     <p>No projects available.</p>
 }
+
