@@ -42,6 +42,43 @@ in the current controller using the HTTP POST method.
 
     <!-- Additional input fields can be added here if needed. -->
 
+    <!-- Lab 5 --> 
+
+    <div class="form-group"> 
+
+        <label asp-for="StartDate" class="control-label"></label> 
+
+        <input asp-for="StartDate" type="date" class="form-control" /> 
+
+    </div> 
+    
+    <!-- Lab 5 --> 
+
+    <div class="form-group"> 
+
+        <label asp-for="EndDate" class="control-label"></label> 
+        <input asp-for="EndDate" type="date" class="form-control" /> 
+
+    </div> 
+    
+    <!-- Lab 5 --> 
+
+    <div class="form-group"> 
+
+        <label asp-for="Status" class="control-label">Status</label> 
+
+        <select asp-for="Status" class="form-control"> 
+
+             
+            <option value="">Select a status</option>
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Complete">Complete</option>
+ 
+        </select> 
+
+    </div> 
+    
     <div class="form-group">
 
         <!-- Submit button -->

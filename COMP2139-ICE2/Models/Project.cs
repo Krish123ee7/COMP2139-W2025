@@ -29,4 +29,6 @@ public class Project
 
     // The current status of the project (e.g., "In Progress", "Completed").
     public string? Status { get; set; }
+    
+    public ICollection<ProjectTask>? ProjectTasks { get; set; }
 }

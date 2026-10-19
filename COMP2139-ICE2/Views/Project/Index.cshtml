@@ -59,8 +59,12 @@
                 <td>
                     <!-- Details -->
                     <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
+                    <!-- Edit -->
+                    <a asp-action="Edit" asp-route-id="@project.ProjectId" class="btn btn-info">Edit</a>
                     <!-- Delete -->
                     <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a>
+                    <!-- View all tasks -->
+                    <a asp-controller="ProjectTask" asp-action="Index" asp-route-projectId="@project.ProjectId" class="btn btn-danger">View Tasks</a>
                 </td>
                 <!-- Additional project properties can be displayed here -->
 
