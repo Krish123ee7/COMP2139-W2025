@@ -1,14 +1,19 @@
 ﻿using COMP2139_ICE2.Data;
-using COMP2139_ICE2.Models;
+using COMP2139_ICE2.Areas.ProjectManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
-namespace COMP2139_ICE2.Controllers;
+namespace COMP2139_ICE2.Areas.ProjectManagement.Controllers;
 
 /// <summary>
 /// Controller responsible for managing project tasks.
 /// </summary>
+///
+
+[Area("ProjectManagement")]
+[Route("[area]/[controller]/[action]")]
+
 public class ProjectTaskController : Controller
 {
     /// <summary>

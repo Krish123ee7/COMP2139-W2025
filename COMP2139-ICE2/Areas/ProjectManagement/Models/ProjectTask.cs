@@ -1,4 +1,4 @@
-﻿namespace COMP2139_ICE2.Models;
+﻿namespace COMP2139_ICE2.Areas.ProjectManagement.Models;
 
 public class ProjectTask
 {

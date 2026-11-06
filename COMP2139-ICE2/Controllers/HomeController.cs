@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using COMP2139_ICE2.Areas.ProjectManagement.Controllers;
+using COMP2139_ICE2.Areas.ProjectManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using COMP2139_ICE2.Models;
 
