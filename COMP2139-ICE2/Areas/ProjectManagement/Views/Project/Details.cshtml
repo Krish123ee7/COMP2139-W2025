@@ -1,69 +1,53 @@
-﻿@* Specifies that this view expects a Project object. *@
-@model Project
-
+﻿@model Project 
 @{
-    // Sets the page title displayed in the browser.
-    ViewData["Title"] = "Project Details";
+    ViewData["Title"] = "Project Details";  // Sets the title of the view to "Project Details"
 }
 
-<h2>Project Details</h2>
+@* Completely update for Lab 9 *@
 
-<div class="card">
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
 
-    <div class="card-body">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">@Html.DisplayFor(model => model.Name, "ProjectName")</h3>
+            <p class="card-text">@Html.DisplayFor(model => model.Description,  "ProjectDescription")</p>
 
-        <!-- Displays the project name as the card title -->
-        <h3 class="card-title">@Model.Name</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Project ID:</strong> @Model.ProjectId</li>
+                <li class="list-group-item"><strong>Start Date:</strong> @Html.DisplayFor(model => model.StartDate, "DateTime")</li>
+                <li class="list-group-item"><strong>End Date:</strong> @Html.DisplayFor(model => model.EndDate, "DateTime")</li>
+                <li class="list-group-item"><strong>Status:</strong>@Html.DisplayFor(model => model.Status, "ProjectName")</li>
+            </ul>
 
-        <!-- Displays the project description -->
-        <p class="card-text">@Model.Description</p>
+            <div class="mt-3">
+                <a asp-action="Edit" asp-route-id="@Model.ProjectId" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" asp-controller="Project" class="btn btn-secondary">Back to Projects</a>
+            </div>
+        </div>
+    </div>
 
-        <!--
-        Displays project information using a definition list.
-
-        <dl> = Definition List
-        <dt> = Definition Term (label)
-        <dd> = Definition Description (value)
-        -->
-        <dl class="row">
-
-            <!-- Displays the Project ID -->
-            <dt class="col-sm-3">Project ID</dt>
-            <dd class="col-sm-9">@Model.ProjectId</dd>
-
-            
-            Additional project properties can be displayed here.
-
-            Example:
-
-            <dt class="col-sm-3">Start Date</dt>
-            <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
-            
-            
-            <dt class="col-sm-3">End Date</dt>
-            <dd class="col-sm-9">@Model.EndDate.ToShortDateString()</dd>
-            
-            <dt class="col-sm-3">End Date</dt>
-            <dd class="col-sm-9">@Model.Status</dd>
-            
-
-        </dl>
-
-        <!--
-        Edit button.
-        The asp-route-id tag helper passes the current
-        ProjectId to the Edit action.
-        -->
-        <a asp-action="Edit"
-           asp-route-id="@Model.ProjectId"
-           class="btn btn-primary">
-            Edit
-        </a>
-
-        <!-- Returns the user to the project list -->
-        <a asp-action="Index"
-           class="btn btn-secondary">
-            Back to List
-        </a>
+    <div id="projectComments">
+        <h3>Comments</h3>
+        <div id="commentsList" class="comments-container">
+            <!-- Comments will be loaded here using AJAX -->
+        </div>
+        <form id="addCommentForm" class="mt-3">
+            <input type="hidden" name="ProjectId" value="@Model.ProjectId" />
+            <div class="form-group">
+                <textarea name="Content" class="form-control" placeholder="Add a comment..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Post Comment</button>
+        </form>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/projectComments.js"></script>
+    <script>
+        $(document).ready(function () {
+            var projectId = $('#projectComments input[name="ProjectId"]').val();
+            loadComments(projectId);
+        });
+    </script>
+}

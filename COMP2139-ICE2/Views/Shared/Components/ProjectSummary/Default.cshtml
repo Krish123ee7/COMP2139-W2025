@@ -1,0 +1,20 @@
+﻿@model COMP2139_ICE2.Areas.ProjectManagement.Models.Project
+<!--Week 10 - Lab 8-->
+<div class="project-summary">
+    <p>@Html.DisplayFor(model => model.Name, "ProjectName")</p>
+    <p>@Html.DisplayFor(model => model.Description, "ProjectDescription")</p>
+    <p><b>Start Date: </b>@Html.DisplayFor(model => model.StartDate, "DateTime")</p>
+    <p><b>End Date: </b>@Html.DisplayFor(model => model.EndDate, "DateTime")</p>
+    <p><b>Status: </b>@Html.DisplayFor(model => model.Status, "ProjectName")</p>
+
+    <p><b>Tasks</b></p>
+    <ul>
+        @foreach (var task in Model.ProjectTasks)
+        {
+            <li>
+                @Html.DisplayFor(model => task.Title, "ProjectTaskTitle") -
+                @Html.DisplayFor(model => task.Description, "ProjectDescription")
+            </li>
+        }
+    </ul>
+</div>

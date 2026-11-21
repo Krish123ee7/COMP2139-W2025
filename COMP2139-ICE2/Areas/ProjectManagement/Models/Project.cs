@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Serilog;
 
 namespace COMP2139_ICE2.Areas.ProjectManagement.Models;
 
@@ -30,5 +31,6 @@ public class Project
     // The current status of the project (e.g., "In Progress", "Completed").
     public string? Status { get; set; }
     
-    public ICollection<ProjectTask>? ProjectTasks { get; set; }
+    public ICollection<ProjectTask>? ProjectTasks { get; set; } = new List<ProjectTask>();
+    
 }

@@ -34,6 +34,10 @@
             <th>Description</th>
 
             <!-- Additional project properties can be added here -->
+            
+            
+            
+            
         </tr>
         </thead>
 
@@ -50,12 +54,13 @@
 
                 <!-- Displays the project ID -->
                 <td>@project.ProjectId</td>
+                <td><a asp-controller="ProjectTask" asp-action="Index" asp-route-projectId="@project.ProjectId" class="btn btn-danger">View Tasks</a></td>
 
                 <!-- Displays the project name -->
-                <td>@project.Name</td>
+                <td>@Html.DisplayFor(modelItem => project.Name, "ProjectName")</td> <!-- Uses ProjectName.cshtml -->
 
                 <!-- Displays the project description -->
-                <td>@project.Description</td>
+                <td>@Html.DisplayFor(modelItem => project.Description, "ProjectDescription") <!-- Uses ProjectDescription.cshtml --></td>
                 <td>
                     <!-- Details -->
                     <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
@@ -66,6 +71,15 @@
                     <!-- View all tasks -->
                     <a asp-controller="ProjectTask" asp-action="Index" asp-route-projectId="@project.ProjectId" class="btn btn-danger">View Tasks</a>
                 </td>
+                
+
+                
+                
+                
+                   
+                <!--Week 10 - Lab 8 -- ViewComponent-->
+                <td>@await Component.InvokeAsync("ProjectSummary", new {projectId = project.ProjectId})</td>
+                
                 <!-- Additional project properties can be displayed here -->
 
             </tr>

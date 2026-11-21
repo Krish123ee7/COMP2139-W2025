@@ -19,16 +19,20 @@ public class ProjectTaskController : Controller
     /// <summary>
     /// Database context used to access application data.
     /// </summary>
+    private readonly ILogger<ProjectTaskController> _logger;
     private readonly ApplicationDbContext _context;
+
+    public ProjectTaskController(ILogger<ProjectTaskController> logger, ApplicationDbContext context)
+    {
+        _context = context;
+        _logger = logger;
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ProjectTaskController"/> class.
     /// </summary>
     /// <param name="context">Application database context.</param>
-    public ProjectTaskController(ApplicationDbContext context)
-    {
-        _context = context;
-    }
+    
 
     /// <summary>
     /// Displays all tasks that belong to a specific project.
@@ -43,6 +47,7 @@ public class ProjectTaskController : Controller
                             .ToList();
 
         ViewBag.ProjectId = projectId;
+        _logger.LogInformation("Getting project task with id" + projectId);
 
         return View(tasks);
     }

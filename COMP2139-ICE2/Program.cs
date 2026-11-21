@@ -1,7 +1,19 @@
 using COMP2139_ICE2.Data;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+// Configure Serilog - Add this below var builder
+builder.Host.UseSerilog((context, configuration) =>
+{
+    configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .WriteTo.Console()
+        .WriteTo.File(
+            "Logs/log-.txt",
+            rollingInterval: RollingInterval.Day
+        );
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -9,6 +21,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+
+app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

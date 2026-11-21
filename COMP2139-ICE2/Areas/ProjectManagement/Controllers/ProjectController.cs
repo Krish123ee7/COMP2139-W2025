@@ -12,20 +12,25 @@ namespace COMP2139_ICE2.Areas.ProjectManagement.Controllers;
 public class ProjectController : Controller
 {
  private readonly ApplicationDbContext _context;
+ private readonly ILogger<ProjectController> _logger;
+ 
 
     // Initializes a new instance of the ProjectController class with the given database context.
-    public ProjectController(ApplicationDbContext context)
+    public ProjectController(ILogger<ProjectController> logger,ApplicationDbContext context)
     {
         // Assign the injected database context to the private field
+        _logger = logger;
         _context = context;
     }
     
     // GET: Project/Index - Retrieves and displays all projects.
     [HttpGet("")]
-    public IActionResult Index() 
+    public async Task<IActionResult> Index() 
     {         
         // Retrieve all project records from the database (Lab#3)
         var projects = _context.Projects.ToList();
+        
+        _logger.LogInformation("Getting all projects");
         
         // Pass the list of projects to the Index view for rendering
         return View(projects); 
@@ -33,7 +38,7 @@ public class ProjectController : Controller
 
     // GET: Project/Create - Renders the create project view form.
     [HttpGet("Create")]
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
         // Return the empty creation form view to the client
         return View();
@@ -58,6 +63,7 @@ public class ProjectController : Controller
             project.EndDate = ToUtc(project.EndDate); 
             _context.Projects.Add(project); 
             _context.SaveChanges();
+            _logger.LogInformation("Project created");
             return RedirectToAction("Index"); 
 
         } 
